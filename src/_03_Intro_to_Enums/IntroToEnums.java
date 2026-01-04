@@ -21,26 +21,33 @@ public class IntroToEnums {
 
 		// 1. In your package explorer, create a new enum file called StatesOfMatter.
 		// Hint: This is very similar to how you create a new class file.
-
+//created
 		// 2. Give the enum the following values:
 		// SOLID, LIQUID, GAS
-
+//done
 		// 3. Create an array of StatesOfMatter with all the values using .values().
 		// Hint: Use "StatesOfMatter." as if it were a static method.
-
+StatesOfMatter[] states = StatesOfMatter.values();
 		// 4. Ask the user for a state of matter.
-
+String stateGiven = JOptionPane.showInputDialog("Give me a state of matter");
 		// 5. Iterate through the array and find what the user entered.
 		// Hint: .name() or .toString
+for(int i =0; i<states.length; i++) {
 
+	if(states[i].name().equalsIgnoreCase(stateGiven)) {
 		// 6. Print outs its ordinal(order in the enum list)
 		// Hint: .ordinal()
+		System.out.println(states[i].ordinal());
+	}
+}
+	
 
 		// 7. Add a celsiusTemp member variable to StatesOfMatter.
 		// Note: Make sure to encapsulate it.
-
+//done
 		// 8. Give it a default value of the temperature each state occurs in water.
 		// Hint: Gas = 100, Liquid(room temp) = 25.55, Solid = 0
+//done
 
 		// Example
 		// enum Months{
@@ -58,9 +65,11 @@ public class IntroToEnums {
 		// Hint: Return the conversion: F = (C * 9/5) + 32
 
 		// 10. Create a variable of the StatesOfMatter type and initialize it randomly.
-
+Random r = new Random();
+StatesOfMatter[] instance = StatesOfMatter.values();
+StatesOfMatter randomMatter = instance[r.nextInt(3)];
 		// 11. Print outs both of its temperatures.
-		
+		System.out.println(randomMatter);
 		// 11. Create a switch statement that switches on the variable you created.
 		// Note: When creating the cases, you can omit the "StatesOfMatter."
 

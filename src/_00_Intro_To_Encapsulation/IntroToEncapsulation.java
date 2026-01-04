@@ -1,7 +1,13 @@
 package _00_Intro_To_Encapsulation;
 
-public class IntroToEncapsulation {
+import java.awt.Color;
 
+public class IntroToEncapsulation {
+	// 6. Create local variables for fuelTankCapacity, fuelInTank and mpg.
+	private static int fuelAllowed = 100;
+	private static int currFuel = 100;
+	private static int mpg = 25;
+	private static Color vColor = new Color(200, 60, 60);
 	public static void main(String[] args) {
 
 		/*
@@ -11,19 +17,21 @@ public class IntroToEncapsulation {
 		 */
 
 		// 1. Create a Vehicle object.
-
+Vehicle v = new Vehicle();
 		// 2. Use the vehicle's setters to change fuelTankCapacity and mpg.
-
+v.setFuelTankCapacity(fuelAllowed );
+v.setMpg(mpg);
 		// 3. Call setFuelInTank with an amount greater than the capacity.
+v.setFuelInTank(currFuel);
 
 		// Note: The reason setFuelInTank doesn't show up is because it's private.
 
 		// 4. Modify setFuelInTank's access modifier so you can use it.
 		// Hint: Access modifiers are described at the top of the Vehicle class.
-
+//did
 		// 5. Create a setter for the vehicle's color then set its color using it.
 
-		// 6. Create local variables for fuelTankCapacity, fuelInTank and mpg.
+		v.color = vColor;
 
 		// 7. Use the vehicle's getters to initialize all of them.
 		// Note: You may need to fix some access modifiers.
@@ -36,6 +44,9 @@ public class IntroToEncapsulation {
 		// Hint: Make all member variables private and all getters/setters public.
 
 		// 11. Drive the vehicle until it runs out of gas.
+		for(int i =0; i<currFuel; i++) {
+		v.drive();
+		}
 	}
 
 }
@@ -54,7 +65,7 @@ class Vehicle {
 
 	// protected makes the member accessible only to subclasses and the package.
 
-	protected String color;
+	protected Color color;
 
 	// no access modifier makes the member accessible only to the package.
 
@@ -77,7 +88,7 @@ class Vehicle {
 		}
 	}
 
-	private void setFuelInTank(int fuelInTank) {
+	public void setFuelInTank(int fuelInTank) {
 		if (fuelInTank >= 0 && fuelInTank <= fuelTankCapacity) {
 			this.fuelInTank = fuelInTank;
 		} else {
