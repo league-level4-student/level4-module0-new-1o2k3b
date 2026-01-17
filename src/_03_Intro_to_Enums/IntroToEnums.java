@@ -73,9 +73,13 @@ StatesOfMatter randomMatter = instance[r.nextInt(3)];
 		// 11. Create a switch statement that switches on the variable you created.
 		// Note: When creating the cases, you can omit the "StatesOfMatter."
 
+
+
+
+}
 		// 12. For each case, print your favorite food or drink that uses that state.
 		// e.g. Gas/Boiling for Pasta, Solid/Ice for Popsicles, Liquid for Soda
 
 	}
 
-}
+
