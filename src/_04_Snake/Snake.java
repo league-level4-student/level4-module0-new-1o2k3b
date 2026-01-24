@@ -25,7 +25,9 @@ public class Snake {
 	}
 
 	public void feed() {
-		snake.add(new SnakeSegment(snake.get(0).getLocation(), BODY_SIZE));
+		System.out.println("Snake Size: " + snake.size());
+		
+		snake.add(new SnakeSegment(head.getLocation(), BODY_SIZE));
 	}
 
 	public Location getHeadLocation() {
@@ -50,12 +52,16 @@ public class Snake {
 switch(currentDirection) {
 case LEFT:
 	headX--;
+	break;
 case RIGHT:
 	headX++;
+	break;
 case DOWN:
 	headY++;
+	break;
 case UP:
 	headY--;
+	break;
 }
 
 		/*
@@ -65,9 +71,11 @@ case UP:
 		 * Use a loop starting at the end of the ArrayList and stop before the head of
 		 * the snake (index 0) or you will go out of bounds.
 		 */
-for(int i = snake.size()-1; i>0; i--) {
-	snake.set(i, snake.get(i-1));
-}
+ for(int i = snake.size()-1; i>0; i--) {
+		//snake.set(i, snake.get(i-1));
+	 	snake.get(i).setLocation(snake.get(i-1).getLocation());
+	 
+	}
 		/*
 		 * Create a new Location object and initialize it with the values calculated in
 		 * the first step. Then set the head's location equal to the new location.
